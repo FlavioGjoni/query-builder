@@ -1,0 +1,31 @@
+version: '3'
+services:
+  php-app:
+    build:
+      context: ./.docker
+      dockerfile: Dockerfile
+    container_name: ${PHP_CONTAINER:-php-app}
+    volumes:
+      - ./:/var/www/html
+  mariadb:
+    image: 'mariadb:10.4'
+    container_name: ${MARIADB_CONTAINER:-mariadb}
+    environment:
+      MARIADB_ROOT_PASSWORD: 'password'
+      MARIADB_ROOT_HOST: '%'
+    volumes:
+      - mariadb-vol:/var/lib/mysql
+  phpyadmin:
+    image: 'phpmyadmin'
+    container_name: ${PHPMYADMIN_CONTAINER:-phpmyadmin}
+    environment:
+      PMA_HOST: mariadb
+    ports:
+      - 7999:80
+    depends_on:
+      - mariadb
+volumes:
+  mariadb-vol:
+    driver: local
+
+  
