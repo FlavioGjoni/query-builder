@@ -1,0 +1,6 @@
+{
+    "name": "query/builder",
+    "description": "Some query builder",
+    "type": "library",
+    "license": "MIT"
+}
