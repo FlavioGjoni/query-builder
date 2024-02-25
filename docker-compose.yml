@@ -21,7 +21,7 @@ services:
     environment:
       PMA_HOST: mariadb
     ports:
-      - 7999:80
+      - "7999:80"
     depends_on:
       - mariadb
 volumes:

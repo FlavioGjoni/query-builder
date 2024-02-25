@@ -2,5 +2,8 @@
     "name": "query/builder",
     "description": "Some query builder",
     "type": "library",
-    "license": "MIT"
+    "license": "MIT",
+    "require": {
+        "vlucas/phpdotenv": "^4.3"
+    }
 }
